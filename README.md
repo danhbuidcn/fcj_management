@@ -56,17 +56,24 @@ npm install --save-dev nodemon
 ```
 npm start
 ```
-
+### Install mysql 
+```
+sudo apt install mysql-server
+sudo systemctl start mysql.service
+sudo mysql
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+```
 ### SQL Schema
 
 ```
-CREATE TABLE `lib'.`user` ( `id` INT NOT NULL AUTO_INCREMENT , `first_name` VARCHAR(45) NOT NULL , `last_name` VARCHAR(45) NOT NULL , `email` VARCHAR(45) NOT NULL , `phone` VARCHAR(45) NOT NULL , `comments` TEXT NOT NULL , `status` VARCHAR(10) NOT NULL DEFAULT 'active' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+mysql> CREATE DATABASE fcj_management;
+MYSQL> USE fcj_management;
+MYSQL> CREATE TABLE user (id INT NOT NULL AUTO_INCREMENT ,first_name VARCHAR(45) NOT NULL ,last_name VARCHAR(45) NOT NULL ,email VARCHAR(45) NOT NULL ,phone VARCHAR(45) NOT NULL ,comments TEXT NOT NULL ,status VARCHAR(10) NOT NULL DEFAULT 'active' , PRIMARY KEY (id));
 ```
 ### SQL Dummy Data
 
 ```
-INSERT INTO `user` 
-(`id`, `first_name`,  `last_name`,    `email`,                 `phone`,         `comments`, `status`) VALUES
+INSERT INTO user(id, first_name, last_name, email, phone, comments, status) VALUES
 (NULL, 'Amanda',      'Nunes',        'anunes@ufc.com',        '012345 678910', '',          'active'),
 (NULL, 'Alexander',   'Volkanovski',  'avolkanovski@ufc.com',  '012345 678910', '',          'active'),
 (NULL, 'Khabib',      'Nurmagomedov', 'knurmagomedov@ufc.com', '012345 678910', '',          'active'),
@@ -84,7 +91,7 @@ INSERT INTO `user`
 (NULL, 'Tecia',       'Torres ',      'ttorres@ufc.com',       '012345 678910', '',          'active'),
 (NULL, 'Ronda',       'Rousey ',      'rrousey@ufc.com',       '012345 678910', '',          'active'),
 (NULL, 'Holly',       'Holm ',        'hholm@ufc.com',         '012345 678910', '',          'active'),
-(NULL, 'Joanna',      'Jedrzejczyk ', 'jjedrzejczyk@ufc.com',  '012345 678910', '',          'active')
+(NULL, 'Joanna',      'Jedrzejczyk ', 'jjedrzejczyk@ufc.com',  '012345 678910', '',          'active');
 ```
 
 ### Reference
