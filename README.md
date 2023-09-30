@@ -56,12 +56,17 @@ npm install --save-dev nodemon
 ```
 npm start
 ```
-### Install mysql 
+### Install mysql local
 ```
 sudo apt install mysql-server
 sudo systemctl start mysql.service
 sudo mysql
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+```
+
+### If run by docker
+```
+mysql -h 127.0.0.1 -P 3306 -u root -p
 ```
 ### SQL Schema
 
