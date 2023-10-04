@@ -1,12 +1,13 @@
 FROM node:latest
 
 WORKDIR /app
-COPY package.json package-lock.json /app/
+COPY package.json /app/
 
-RUN npm install \
-    express dotenv express-handlebars body-parser mysql \
-    --save \
-    && npm install --save-dev nodemon
-
+RUN npm install && npm install -g nodemon
+COPY app.js app.js
+COPY views views
+COPY public public
+COPY images images
+COPY server server
 EXPOSE 5000
 CMD ["npm", "start"]
